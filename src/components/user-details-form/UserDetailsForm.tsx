@@ -1,11 +1,13 @@
 'use client'
 
 import { FC, useState, FormEvent } from 'react'
+import { useRouter } from 'next/navigation'
 import {
   Button,
   FormControl,
   FormLabel,
   Input,
+  VStack,
   Stack,
   Box,
   Flex,
@@ -13,19 +15,20 @@ import {
   Img,
   FormErrorMessage,
 } from '@chakra-ui/react'
-import { useUserData } from '@utils'
+import { getUserData, setUserData } from '@core'
 
-export type UserDetailsFormProps = {
-  goToMainPage: VoidFunction
-}
-export const UserDetailsForm: FC<UserDetailsFormProps> = ({
-  goToMainPage,
-}) => {
-  const { getUserData, setUserData } = useUserData()
-  const userData = getUserData()
+export const UserDetailsForm: FC = () => {
+  const router = useRouter()
 
-  const [username, setUsername] = useState(userData?.username || '')
-  const [jobTitle, setJobTitle] = useState(userData?.jobTitle || '')
+  const goToMainPage = () => {
+    router.push('/')
+  }
+
+  const { username: storedUsername, jobTitle: storedJobTitle } =
+    getUserData()
+
+  const [username, setUsername] = useState(storedUsername || '')
+  const [jobTitle, setJobTitle] = useState(storedJobTitle || '')
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault()
@@ -33,9 +36,9 @@ export const UserDetailsForm: FC<UserDetailsFormProps> = ({
     goToMainPage()
   }
 
-  const canBeEdited = userData?.username && userData?.jobTitle
-  const invalidUsername = !!userData?.username && !username
-  const invalidJobTitle = !!userData?.jobTitle && !jobTitle
+  const canBeEdited = storedUsername && storedJobTitle
+  const invalidUsername = !!storedUsername && !username
+  const invalidJobTitle = !!storedJobTitle && !jobTitle
 
   return (
     <Flex
@@ -48,7 +51,7 @@ export const UserDetailsForm: FC<UserDetailsFormProps> = ({
       w="100%"
       h={['100%', 'auto']}
     >
-      <Box w="50%" display={{ base: 'none', sm: 'block' }}>
+      <Box w="50%" display={['none', 'block']}>
         <Img
           src="https://i.ebayimg.com/00/s/MTYwMFgxMDg1/z/YD0AAOSwojBdRUIG/$_57.JPG?set_id=8800005007"
           alt="Rick and Morty Cover Image"
@@ -59,7 +62,7 @@ export const UserDetailsForm: FC<UserDetailsFormProps> = ({
         />
       </Box>
 
-      <Stack
+      <VStack
         w={['100%', '50%']}
         h={['100%', 'auto']}
         justifyContent="center"
@@ -74,8 +77,8 @@ export const UserDetailsForm: FC<UserDetailsFormProps> = ({
         </Text>
 
         <form onSubmit={handleSubmit} style={{ width: '100%' }}>
-          <Stack direction="column" spacing={10}>
-            <Stack direction="column" spacing={4} w="100%">
+          <VStack spacing={10}>
+            <VStack spacing={4} w="100%">
               <FormControl isRequired isInvalid={invalidUsername}>
                 <FormLabel fontWeight="bold">Username</FormLabel>
                 <Input
@@ -106,7 +109,7 @@ export const UserDetailsForm: FC<UserDetailsFormProps> = ({
                   </FormErrorMessage>
                 ) : null}
               </FormControl>
-            </Stack>
+            </VStack>
 
             {canBeEdited ? (
               <Stack
@@ -120,7 +123,7 @@ export const UserDetailsForm: FC<UserDetailsFormProps> = ({
                   variant="outline"
                   onClick={goToMainPage}
                 >
-                  Back
+                  Cancel
                 </Button>
                 <Button
                   type="submit"
@@ -129,8 +132,8 @@ export const UserDetailsForm: FC<UserDetailsFormProps> = ({
                   isDisabled={
                     !username ||
                     !jobTitle ||
-                    (userData?.username === username &&
-                      userData?.jobTitle === jobTitle)
+                    (storedUsername === username &&
+                      storedJobTitle === jobTitle)
                   }
                 >
                   Save
@@ -146,9 +149,9 @@ export const UserDetailsForm: FC<UserDetailsFormProps> = ({
                 Submit
               </Button>
             )}
-          </Stack>
+          </VStack>
         </form>
-      </Stack>
+      </VStack>
     </Flex>
   )
 }

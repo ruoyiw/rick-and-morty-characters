@@ -24,17 +24,17 @@
       "@components/*": [
         "./components/*"
       ],
-      "@utils": [
-        "./utils"
+      "@core": [
+        "./core"
       ],
-      "@utils/*": [
-        "./utils/*"
+      "@core/*": [
+        "./core/*"
       ],
-      "@styles": [
-        "./styles"
+      "@api": [
+        "./api"
       ],
-      "@styles/*": [
-        "./styles/*"
+      "@api/*": [
+        "./api/*"
       ],
     }
   },

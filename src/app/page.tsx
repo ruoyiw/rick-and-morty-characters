@@ -1,27 +1,41 @@
 'use client'
 
 import { NextPage } from 'next'
-import { useRouter } from 'next/navigation'
-import { Flex } from '@chakra-ui/react'
-import { UserDetailsForm } from '@components/user-details-form'
+import { Box, VStack, Text } from '@chakra-ui/react'
+import { PropsWithChildren } from 'react'
 
-const Page: NextPage = () => {
-  const router = useRouter()
+import { Header } from '@components/header'
+import { Spinner } from '@components/spinner'
+import { CharacterList } from '@components/character-list'
+import { getUserData } from '@core'
 
-  const goToMainPage = () => {
-    router.push('/characters')
+type PageProps = PropsWithChildren<{
+  params: {
+    page: string
   }
+}>
+
+const Page: NextPage<PageProps> = ({ params: { page } }) => {
+  const { username, jobTitle } = getUserData()
+
+  if (!(username && jobTitle)) return <Spinner />
 
   return (
-    <Flex
-      alignItems="center"
-      justifyContent="center"
-      p={[4, 6, 8]}
-      w="100%"
-      h="100vh"
-    >
-      <UserDetailsForm goToMainPage={goToMainPage} />
-    </Flex>
+    <Box w="100%">
+      <Header />
+
+      <VStack spacing={[4, 6, 8]} padding={[4, 6, 8]}>
+        <Text
+          fontSize={['2xl', '3xl']}
+          fontWeight="bold"
+          textAlign="center"
+          as="h1"
+        >
+          Rick and Morty Characters
+        </Text>
+        <CharacterList page={Number(page) || 1} />
+      </VStack>
+    </Box>
   )
 }
 
