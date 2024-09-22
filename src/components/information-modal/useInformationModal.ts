@@ -1,6 +1,7 @@
 import { useContext } from 'react'
 import { ModalContext } from './context'
 
+// Hook to access the modal state
 export const useInformationModal = () => {
   const context = useContext(ModalContext)
 

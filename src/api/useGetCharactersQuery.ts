@@ -6,6 +6,7 @@ import {
 } from '@apollo/client'
 import { Character } from '@types'
 
+// The GraphQL query to fetch characters with pagination
 const GET_CHARACTERS_GQL = gql`
   query GetCharacters($page: Int!) {
     characters(page: $page) {
@@ -54,6 +55,7 @@ type GetCharactersQuery = {
   }
 }
 
+// Custom hook to use the GetCharacters query
 export const useGetCharactersQuery = (
   options: QueryHookOptions<
     GetCharactersQuery,

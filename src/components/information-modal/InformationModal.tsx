@@ -22,6 +22,7 @@ import { NextImage } from '@components/next-image'
 import { StatusBadge } from '@components/status-badge'
 import { Gender } from '@types'
 
+// List item component to display character information with a label and value
 const ListItem = ({
   label,
   value,
@@ -36,6 +37,7 @@ const ListItem = ({
     </HStack>
   ) : null
 
+// Mapping of gender to color scheme
 const genderColorsMapping: Record<Gender, TagProps['colorScheme']> = {
   Female: 'pink',
   Male: 'blue',

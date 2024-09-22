@@ -8,4 +8,5 @@ type ContextType = {
   onOpen: (character: Character) => void
 }
 
+// Create a context to manage the modal state
 export const ModalContext = createContext<ContextType | null>(null)

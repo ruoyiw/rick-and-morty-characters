@@ -17,6 +17,7 @@ import {
 } from '@chakra-ui/react'
 import { getUserData, setUserData } from '@core'
 
+// User details form component to get user's username and job title
 export const UserDetailsForm: FC = () => {
   const router = useRouter()
 
@@ -24,9 +25,11 @@ export const UserDetailsForm: FC = () => {
     router.push('/')
   }
 
+  // Get stored username and job title from cookie
   const { username: storedUsername, jobTitle: storedJobTitle } =
     getUserData()
 
+  // State variables to store username and job title from the input fields
   const [username, setUsername] = useState(storedUsername || '')
   const [jobTitle, setJobTitle] = useState(storedJobTitle || '')
 
@@ -36,9 +39,10 @@ export const UserDetailsForm: FC = () => {
     goToMainPage()
   }
 
+  // The form can be edited if the username and job title are saved already
   const canBeEdited = storedUsername && storedJobTitle
-  const invalidUsername = !!storedUsername && !username
-  const invalidJobTitle = !!storedJobTitle && !jobTitle
+  const invalidUsername = !!storedUsername && !username // The username is invalid if the username field is changed to be empty
+  const invalidJobTitle = !!storedJobTitle && !jobTitle // The job title is invalid if the job title field is changed to be empty
 
   return (
     <Flex
@@ -51,6 +55,7 @@ export const UserDetailsForm: FC = () => {
       w="100%"
       h={['100%', 'auto']}
     >
+      {/*  Display the cover image only on desktop or tablet */}
       <Box w="50%" display={['none', 'block']}>
         <Img
           src="/cover-image.png"
@@ -78,6 +83,7 @@ export const UserDetailsForm: FC = () => {
         <form onSubmit={handleSubmit} style={{ width: '100%' }}>
           <VStack spacing={10}>
             <VStack spacing={4} w="100%">
+              {/* username input field */}
               <FormControl isRequired isInvalid={invalidUsername}>
                 <FormLabel fontWeight="bold">Username</FormLabel>
                 <Input
@@ -93,6 +99,8 @@ export const UserDetailsForm: FC = () => {
                   </FormErrorMessage>
                 ) : null}
               </FormControl>
+
+              {/* job title input field */}
               <FormControl isRequired isInvalid={invalidJobTitle}>
                 <FormLabel fontWeight="bold">Job Title</FormLabel>
                 <Input
@@ -110,6 +118,7 @@ export const UserDetailsForm: FC = () => {
               </FormControl>
             </VStack>
 
+            {/* if the user details are already saved in cookie, display the cancel and save changes buttons */}
             {canBeEdited ? (
               <Stack
                 direction={['column-reverse', 'row']}
@@ -139,6 +148,7 @@ export const UserDetailsForm: FC = () => {
                 </Button>
               </Stack>
             ) : (
+              /* if the user details are not saved in cookie, display the submit button */
               <Button
                 type="submit"
                 colorScheme="orange"

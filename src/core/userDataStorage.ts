@@ -5,27 +5,7 @@ export type UserData = {
   jobTitle?: string
 }
 
-// export const useUserData = () => {
-//   const [userData, setUserData] = useState<UserData | null>(null)
-
-//   useEffect(() => {
-//     // This code only runs on the client side
-//     const storedData = localStorage.getItem('userData')
-//     if (storedData) {
-//       setUserData(JSON.parse(storedData))
-//     }
-//   }, [])
-
-//   const saveUserData = (data: UserData) => {
-//     setUserData(data)
-//     if (typeof window !== 'undefined') {
-//       localStorage.setItem('userData', JSON.stringify(data))
-//     }
-//   }
-
-//   return { userData, setUserData: saveUserData }
-// }
-
+// getUserData function that reads the username and jobTitle from the cookies and returns them as an object.
 export const getUserData = (): UserData => {
   const username = Cookies.get('username')
   const jobTitle = Cookies.get('jobTitle')
@@ -33,6 +13,7 @@ export const getUserData = (): UserData => {
   return { username, jobTitle }
 }
 
+// setUserData function that sets the username and jobTitle in the cookies.
 export const setUserData = ({ username, jobTitle }: UserData) => {
   Cookies.set('username', username || '')
   Cookies.set('jobTitle', jobTitle || '')

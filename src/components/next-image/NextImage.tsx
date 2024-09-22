@@ -5,6 +5,7 @@ type NextImageProps = Pick<
   'src' | 'width' | 'height' | 'quality' | 'alt' | 'style' | 'sizes'
 >
 
+// Create a blurred SVG image as a placeholder
 const rgbDataURL = (r: number, g: number, b: number) => {
   const svg = `
   <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
@@ -19,6 +20,7 @@ const rgbDataURL = (r: number, g: number, b: number) => {
   )}`
 }
 
+// Use next/image for image optimization with blur placeholder
 export const NextImage = (props: NextImageProps) => {
   const { src, width, height, quality = 75, alt, style } = props
   return (

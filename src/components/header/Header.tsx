@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation'
 import { Avatar, Text, VStack, HStack } from '@chakra-ui/react'
 import { getUserData } from '@core'
 
+// Header component to display user details and static avatar
 export const Header: FC = () => {
   const { username, jobTitle } = getUserData()
 
@@ -33,12 +34,13 @@ export const Header: FC = () => {
       </VStack>
 
       <Avatar
-        tabIndex={0}
+        as="button"
         name={username}
         src="/header-avatar.png"
         onClick={goToEditUser}
         cursor="pointer"
         title="Go to edit user details"
+        aria-label="Edit user details"
       />
     </HStack>
   )

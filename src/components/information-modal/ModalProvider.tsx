@@ -3,6 +3,7 @@ import { Character } from '@types'
 import { InformationModal } from './InformationModal'
 import { ModalContext } from './context'
 
+// Create a provider to manage the modal state - isOpen, character, onClose, and onOpen
 export const ModalProvider: FC<PropsWithChildren> = ({
   children,
 }) => {

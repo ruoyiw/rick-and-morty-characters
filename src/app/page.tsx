@@ -9,6 +9,7 @@ import { CharacterList } from '@components/character-list'
 import { ContentWrapper } from '@components/content-wrapper'
 import { getUserData } from '@core'
 
+// Character list page
 const Page: NextPage = () => {
   const { username, jobTitle } = getUserData()
 

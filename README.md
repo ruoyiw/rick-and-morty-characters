@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Rick and Morty Characters
+
+This is a [Next.js](https://nextjs.org) project that displays characters from the Rick and Morty series. The project is bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+
+## Features
+
+- User details page to get from the user a username and job title.
+- Block user to access other pages until getting the username and job title.
+- Save and edit the user information.
+- Characters page to display a list of characters from the Rick and Morty series.
+- Popup modal to view detailed information about each character.
+- Pagination to navigate through the list of characters.
 
 ## Getting Started
+
+### Prerequisites
+
+Make sure you have [Node.js](https://nodejs.org/) installed on your machine.
+
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/ruoyiw/rick-and-morty-characters.git
+cd rick-and-morty-characters
+```
+
+2. Install dependencies:
+
+```bash
+yarn install
+```
+
+### Running Locally
 
 First, run the development server:
 
 ```bash
-npm run dev
-# or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Deployment
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This project can be easily deployed on [Vercel](https://vercel.com). Follow these steps:
 
-## Learn More
+1. Push your code to a GitHub repository.
+2. Go to [Vercel](https://vercel.com) and import your repository.
+3. Follow the prompts to deploy your application.
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+You can check out the deployed version of this project at [https://your-vercel-deployment-url.vercel.app](https://your-vercel-deployment-url.vercel.app).

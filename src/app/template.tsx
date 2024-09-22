@@ -10,11 +10,14 @@ import { getUserData, apolloClient, theme } from '@core'
 const Template: NextPage<PropsWithChildren> = ({ children }) => {
   const router = useRouter()
 
+  // Get user data (username and job title) from cookie
   const { username, jobTitle } = getUserData()
+  // State to check if the component is rendered on the client side
   const [isClient, setIsClient] = useState(false)
 
   useEffect(() => {
-    setIsClient(true)
+    setIsClient(true) // Set isClient to true when the component is mounted
+    // Redirect to the user-details page if username or job title is missing
     if (!(username && jobTitle)) {
       router.push('/user-details')
     }

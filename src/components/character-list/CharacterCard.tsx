@@ -9,6 +9,7 @@ type CharacterCardProps = {
   character: Character
 }
 
+// Hover and focus styles
 const hoverFocusStyles = {
   borderColor: 'orange.400',
   color: 'orange.400',
@@ -17,6 +18,7 @@ const hoverFocusStyles = {
   },
 }
 
+// Character card component to display basic character information including name, image, status, and species
 export const CharacterCard: FC<CharacterCardProps> = ({
   character,
 }) => {
@@ -39,7 +41,8 @@ export const CharacterCard: FC<CharacterCardProps> = ({
       w="100%"
       cursor="pointer"
       onClick={() => onOpen(character)}
-      title={`Open ${character.name} information`}
+      title={`View detailed information about ${character.name}`}
+      aria-label={`Open ${character.name} information`}
     >
       <Box className="image-wrapper" maxW="45%" overflow="hidden">
         <NextImage

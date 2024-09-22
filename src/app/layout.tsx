@@ -1,14 +1,13 @@
 import type { Metadata, NextPage } from 'next'
 import { PropsWithChildren } from 'react'
 
+// Define metadata for the application
 export const metadata: Metadata = {
   title: 'Rick and Morty',
   description: 'Rick and Morty characters',
-  // icons: {
-  //   icon: 'https://rickandmortyapi.com/favicon-32x32.png?v=1538abef51e33ef514e8fe1ab9aeab4e',
-  // },
 }
 
+// Define the viewport for the application
 export const viewport = {
   width: 'device-width',
   initialScale: 1,
