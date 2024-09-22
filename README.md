@@ -44,10 +44,4 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ### Deployment
 
-This project can be easily deployed on [Vercel](https://vercel.com). Follow these steps:
-
-1. Push your code to a GitHub repository.
-2. Go to [Vercel](https://vercel.com) and import your repository.
-3. Follow the prompts to deploy your application.
-
-You can check out the deployed version of this project at [https://your-vercel-deployment-url.vercel.app](https://your-vercel-deployment-url.vercel.app).
+This project is deployed on [Vercel](https://vercel.com). You can check out the deployed version of this project at [https://rick-and-morty-characters-weld.vercel.app](https://rick-and-morty-characters-weld.vercel.app).
