@@ -12,8 +12,8 @@ import {
   Box,
   Flex,
   Text,
-  Img,
   FormErrorMessage,
+  Img,
 } from '@chakra-ui/react'
 import { getUserData, setUserData } from '@core'
 
@@ -53,12 +53,11 @@ export const UserDetailsForm: FC = () => {
     >
       <Box w="50%" display={['none', 'block']}>
         <Img
-          src="https://i.ebayimg.com/00/s/MTYwMFgxMDg1/z/YD0AAOSwojBdRUIG/$_57.JPG?set_id=8800005007"
+          src="/cover-image.png"
           alt="Rick and Morty Cover Image"
           w="100%"
           h="100%"
           borderLeftRadius="2xl"
-          backdropBlur="5px"
         />
       </Box>
 

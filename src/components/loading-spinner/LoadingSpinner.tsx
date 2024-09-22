@@ -1,7 +1,7 @@
 import { FC } from 'react'
-import { Spinner as LibSpinner, Flex } from '@chakra-ui/react'
+import { Spinner, Flex, SpinnerProps } from '@chakra-ui/react'
 
-export const Spinner: FC = () => (
+export const LoadingSpinner: FC<SpinnerProps> = (props) => (
   <Flex
     alignItems="center"
     justifyContent="center"
@@ -9,11 +9,12 @@ export const Spinner: FC = () => (
     w="100%"
     h="100%"
   >
-    <LibSpinner
+    <Spinner
       thickness="6px"
       speed="0.65s"
       color="orange.400"
       size="xl"
+      {...props}
     />
   </Flex>
 )

@@ -18,10 +18,6 @@ export const Header: FC = () => {
     <HStack
       w="100%"
       h="60px"
-      //   bg="white"
-      //   borderBottom={1}
-      //   borderBottomColor="gray.300"
-      //   borderBottomStyle="solid"
       p={4}
       justifyContent="right"
       height="fit-content"
@@ -37,8 +33,9 @@ export const Header: FC = () => {
       </VStack>
 
       <Avatar
+        tabIndex={0}
         name={username}
-        src="https://toppng.com/uploads/preview/rick-and-morty-sticker-stickers-rick-and-morty-11563506183hpenzns16l.png"
+        src="/header-avatar.png"
         onClick={goToEditUser}
         cursor="pointer"
         title="Go to edit user details"

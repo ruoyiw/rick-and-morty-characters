@@ -4,6 +4,7 @@ import {
   QueryResult,
   useQuery,
 } from '@apollo/client'
+import { Character } from '@types'
 
 const GET_CHARACTERS_GQL = gql`
   query GetCharacters($page: Int!) {
@@ -29,9 +30,7 @@ const GET_CHARACTERS_GQL = gql`
         }
         image
         episode {
-          id
           name
-          episode
         }
         created
       }
@@ -41,30 +40,6 @@ const GET_CHARACTERS_GQL = gql`
 
 type GetCharactersQueryVariables = {
   page: number
-}
-
-type Status = 'Alive' | 'Dead' | 'unknown'
-
-export type Character = {
-  id: string
-  name: string
-  status: Status
-  species: string
-  type: string
-  gender: string
-  origin: {
-    name: string
-  }
-  location: {
-    name: string
-  }
-  image: string
-  episode: Array<{
-    id: string
-    name: string
-    episode: string
-  }>
-  created: string
 }
 
 type GetCharactersQuery = {

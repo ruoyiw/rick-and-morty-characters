@@ -4,9 +4,9 @@ import { PropsWithChildren } from 'react'
 export const metadata: Metadata = {
   title: 'Rick and Morty',
   description: 'Rick and Morty characters',
-  icons: {
-    icon: 'https://rickandmortyapi.com/favicon-32x32.png?v=1538abef51e33ef514e8fe1ab9aeab4e',
-  },
+  // icons: {
+  //   icon: 'https://rickandmortyapi.com/favicon-32x32.png?v=1538abef51e33ef514e8fe1ab9aeab4e',
+  // },
 }
 
 export const viewport = {
