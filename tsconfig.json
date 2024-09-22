@@ -24,11 +24,23 @@
       "@components/*": [
         "./components/*"
       ],
-      "@core/": [
+      "@core": [
         "./core"
       ],
       "@core/*": [
         "./core/*"
+      ],
+      "@api": [
+        "./api"
+      ],
+      "@api/*": [
+        "./api/*"
+      ],
+      "@types": [
+        "./types"
+      ],
+      "@types/*": [
+        "./types/*"
       ],
     }
   },
